@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Support</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      background: #f5f5f5;
+      min-height: 100vh;
+      color: #333;
+      line-height: 1.8;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+    .app-list {
+      list-style: none;
+    }
+    .app-list li {
+      margin-bottom: 16px;
+    }
+    .app-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: #333;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: box-shadow 0.2s;
+    }
+    .app-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .app-card img {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+    }
+    .app-info h2 {
+      font-size: 17px;
+      margin-bottom: 2px;
+    }
+    .app-info p {
+      font-size: 13px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>App Support</h1>
+    <p class="subtitle">アプリのサポートページ一覧</p>
+
+    <ul class="app-list">
+      <li>
+        <a class="app-card" href="matiquize/">
+          <img src="matiquize/icon.png" alt="マチクイズ">
+          <div class="app-info">
+            <h2>マチクイズ（USJ）</h2>
+            <p>USJの待ち時間に遊べる○×クイズアプリ</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
