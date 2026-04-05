@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechEar - 毎朝5分、テック英語リスニング</title>
+  <link rel="icon" href="favicon.ico">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      background: #f8fafc;
+      color: #1a1a2e;
+      line-height: 1.8;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #1565C0 0%, #1976D2 40%, #2196F3 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    }
+    .hero img {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .hero .tagline {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .hero .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: #1565C0;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .hero .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+    }
+
+    /* Container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Section */
+    .section {
+      padding: 60px 0;
+    }
+    .section:nth-child(even) {
+      background: #fff;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #1565C0;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border: 1px solid #e8edf2;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    .feature-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #1a1a2e;
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Topics */
+    .topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .topic-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .topic-aws { background: #fff3e0; color: #e65100; }
+    .topic-vscode { background: #e3f2fd; color: #1565c0; }
+    .topic-anthropic { background: #e0f2f1; color: #00695c; }
+    .topic-github { background: #f3e5f5; color: #7b1fa2; }
+
+    /* How it works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      text-align: center;
+    }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #1565C0;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .step h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .step p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Privacy / Support cards */
+    .info-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border: 1px solid #e8edf2;
+    }
+    .info-card h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #1565C0;
+    }
+    .info-card ul {
+      padding-left: 20px;
+    }
+    .info-card li {
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1565C0;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      margin-top: 12px;
+      transition: background 0.2s;
+    }
+    .contact-link:hover { background: #0d47a1; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 13px;
+      color: #999;
+      border-top: 1px solid #e8edf2;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .hero { padding: 60px 20px 40px; }
+      .hero h1 { font-size: 28px; }
+      .section { padding: 40px 0; }
+      .section-title { font-size: 22px; }
+      .features { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img src="icon.png" alt="TechEar アイコン">
+    <h1>TechEar</h1>
+    <p class="tagline">毎朝5分、テック英語リスニング</p>
+    <!-- App Store リンクはリリース後に追加 -->
+    <!-- <a class="cta" href="#">App Store でダウンロード</a> -->
+  </div>
+
+  <!-- Features -->
+  <div class="section">
+    <div class="container">
+      <h2 class="section-title">エンジニアのための英語学習</h2>
+      <p class="section-subtitle">最新テック記事が、毎朝の英語リスニング教材に変わる</p>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">🎧</div>
+          <h3>毎朝届くテック英語</h3>
+          <p>AWS・GitHub・VS Code・Anthropicの最新記事が、聴きやすい英語リスニング教材に。通勤中の5分で学べます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>キーワード予習</h3>
+          <p>音声を聴く前に、登場するキーワードを日本語訳付きで確認。リスニングの理解度がぐっと上がります。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧩</div>
+          <h3>クイズで定着</h3>
+          <p>エピソードを聴いた後に4択クイズ。正誤と解説で理解度をチェックできます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>速度調整 & ループ</h3>
+          <p>0.5x〜2.0xの速度調整とループ再生で、自分のペースで繰り返し学習。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>日本語訳スクリプト</h3>
+          <p>英語スクリプトと日本語訳をワンタップで切替。内容を確認しながら学べます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔔</div>
+          <h3>毎朝リマインド</h3>
+          <p>設定した時刻にプッシュ通知。毎日の学習習慣をサポートします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Topics -->
+  <div class="section" style="background:#fff;">
+    <div class="container">
+      <h2 class="section-title">4つのトピック</h2>
+      <p class="section-subtitle">興味のあるテック分野を選んで学習</p>
+      <div class="topics">
+        <span class="topic-badge topic-aws">🟠 AWS</span>
+        <span class="topic-badge topic-vscode">🔵 VS Code</span>
+        <span class="topic-badge topic-anthropic">🟢 Anthropic</span>
+        <span class="topic-badge topic-github">🟣 GitHub</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="section">
+    <div class="container">
+      <h2 class="section-title">使い方</h2>
+      <p class="section-subtitle">3ステップで始められます</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>エピソードを選ぶ</h3>
+          <p>トピックでフィルタして、気になるエピソードをタップ</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>キーワードを予習</h3>
+          <p>登場するキーワードを日本語訳付きで確認してから再生</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>聴いてクイズ</h3>
+          <p>英語音声を聴いたら、4択クイズで理解度をチェック</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Support & Privacy -->
+  <div class="section" style="background:#fff;">
+    <div class="container">
+      <div class="info-card">
+        <h2>お問い合わせ・サポート</h2>
+        <p>不具合の報告やご意見・ご要望は、以下からお気軽にご連絡ください。</p>
+        <a class="contact-link" href="https://github.com/to-higashiguchi/app-support/issues">お問い合わせ（GitHub Issues）</a>
+      </div>
+
+      <div class="info-card">
+        <h2>プライバシーポリシー</h2>
+        <p>本アプリはユーザーの個人情報を収集しません。</p>
+        <ul>
+          <li>アカウント登録・ログインは不要です</li>
+          <li>学習進捗データはお使いの端末内にのみ保存されます</li>
+          <li>第三者への情報提供はありません</li>
+          <li>広告・アナリティクスSDKは含まれていません</li>
+          <li>音声・テキストデータの取得にAPI通信を行いますが、ユーザーを識別する情報は送信しません</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 TechEar
+  </footer>
+
+</body>
+</html>
